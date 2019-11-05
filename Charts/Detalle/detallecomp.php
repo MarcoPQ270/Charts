@@ -15,7 +15,7 @@
 <body background="../img/a.jpg">
     <div class="row">
         <div class="col s12 m8 offset-m2">
-            <h3 align="center"><font color="#2196F3">Productos</font></h3>
+            <h3 align="center"><font color="#2196F3">Detalle compra</font></h3>
             <div class="card">
             <div class="card-image">
         </div>
@@ -24,12 +24,12 @@
                         <div class="row">
                         <div class="input-field col s12">
                         <div class="card-image">
-                                    <img src="../../img/ventas.png" width="230" height="300">
+                                    <img src="../../img/dinero.jpg" width="230" height="300">
                            </div>
                             <div class="input-field col s9">
                             
                                 <button id="btnGuardar" name="btnGuardar" type="button" class="btn waves-effect waves-light blue" >
-                                        <i class="material-icons right" >save</i><a href="ejemplo.php"  style="color:#FFFFFF;">Graficar</a></button>
+                                        <i class="material-icons right" >save</i><a href="prueba.php"  style="color:#FFFFFF;">Graficar</a></button>
                             </div>
                            
                             <div class="input-field col s3">
@@ -45,9 +45,9 @@
         </div>
     </div>
     <!-------------------------------------------------------------------------------- Ventana Modal---------------------------------------------------------------------------->
-<div class="modal" id="Tablaprod">
+<div class="modal" id="Tabladetalle">
         <div class="modal-content">
-            <h4 align="center">Consulta de Productos</h4>
+            <h4 align="center">Consulta de detalles ventas</h4>
             <br>
             <div class="row" id="tabla">
                
@@ -65,15 +65,15 @@
     <script type="text/javascript" src="../../js/jquery.validate.min.js"></script>
     <script>
  //INICIALIZA LA VENTANA MODAL--------------------------------------------------------------------------------------------------------------------------------------------
-            $("#Tablaprod").modal();
-            $("#tabla").load("Tablaprod.php");
+            $("#Tabladetalle").modal();
+            $("#tabla").load("Tabladetalle.php");
             $("#btnConsultar").click(function(){
-                $("#tabla").load("Tablaprod.php");
-                $("#Tablaprod").modal('open');
+                $("#tabla").load("Tabladetalle.php");
+                $("#Tabladetalle").modal('open');
                 
             });
             $("#Cerrar").click(function(){
-                $("#Tablaprod").modal('close');
+                $("#Tabladetalle").modal('close');
                 
             });
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

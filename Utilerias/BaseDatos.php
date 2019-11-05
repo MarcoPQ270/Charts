@@ -60,23 +60,20 @@ function cargaProd(){
     return Consulta($query);
 }
 
-function guardaprod($idp,$nompro,$precio, $stock,$categoria){
-    $sentencia = "INSERT INTO productos (idproducto,nombreprod,precio,stock, idcategoria) VALUES ({$idp},'{$nompro}',{$precio},{$stock},{$categoria})";
-    if (Ejecuta($sentencia)) {
-        return 1;
-    } else{
-        $sentencia = "UPDATE productos SET nombreprod='{$nompro}',precio={$precio}, stock={$stock}, idcategoria{$categoria} WHERE idproducto='{$idp}'";
-        return Ejecuta($sentencia);
-    }
-}
-
-
-function eliminarEstudiante($no){
-$sentencia = "DELETE FROM consejo.estudiantes WHERE nocontrol = '{$no}'";
-return Ejecuta($sentencia);
-}
-
-function consultaEstudiantes(){
-$query = "SELECT nocontrol,nombre,edad FROM consejo.estudiantes ORDER BY nocontrol";
-return Consulta($query);
+function cargaDetalle(){
+    $query = "SELECT iddetalle,
+    nombreprod,
+    c.nombre,
+    b.precio,
+    cantidad,
+    fechacompra
+FROM
+    productos AS a
+INNER JOIN detalle AS b
+INNER JOIN clientes AS c
+ON
+    a.idproducto = b.idproducto AND b.idcliente = c.idcliente  
+    ORDER BY
+        iddetalle";
+    return Consulta($query);
 }
