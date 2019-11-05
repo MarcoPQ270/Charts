@@ -1,9 +1,9 @@
 <?php
 include_once("../../Utilerias/BaseDatos.php");
-$res =cargacompracio();
+$res = cargacompracio();
 echo "<table class ='highlight bordered'>
 <thead>
-    <tr><th>producto</th><th>Perdida</th><th>Ganancia</th></tr>
+    <tr><th>Producto</th><th>Perdida $(Mxn)</th><th>Ganancia $(Mxn)</th></tr>
     </thead>
     <tbody>";
 foreach ($res as $tupla) {

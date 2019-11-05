@@ -85,4 +85,5 @@ INNER JOIN detalle B ON
 (A.idproducto = B.idproducto)
 ORDER BY
 A.nombreprod";
+return Consulta($query);
 }
