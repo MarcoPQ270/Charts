@@ -25,7 +25,7 @@
                                 <div class="card">
                                     <div class="card-image">
                                     <img src="img/ventas.png" width="230" height="150">
-                                    <span class="card-title">Ventas</span>
+                                    <span class="card-title">Productos en Stock</span>
                                     </div>
                                     <div class="card-content">
                                     <p>I am a very simple card. I am good at containing small bits of information.
@@ -65,6 +65,21 @@
                                     </div>
                                     <div class="card-action">
                                     <a href="../graficos/ejemplo2.html">Graficar</a>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col s6 m4">
+                                <div class="card">
+                                    <div class="card-image" >
+                                    <img src="img/dinero.jpg" width="230" height="150">
+                                    <span class="card-title">Ganancias</span>
+                                    </div>
+                                    <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.</p>
+                                    </div>
+                                    <div class="card-action">
+                                    <a href="Charts/VentasComp/ejemplo.php">Graficar</a>
                                     </div>
                                 </div>
                                 </div>

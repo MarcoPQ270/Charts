@@ -56,7 +56,7 @@ function cargaProd(){
     INNER JOIN categoria B ON
         (A.idcategoria = B.idcategoria)
     ORDER BY
-        nombreprod";
+        idproducto";
     return Consulta($query);
 }
 

@@ -23,42 +23,46 @@
         <div class="row">
         <?php
 $conn=new mysqli("localhost","root","","graficos");
-$sql='SELECT nombreprod, stock FROM productos';
+$sql='SELECT ventas, anio FROM ventasxanio';
 $result = $conn->query(($sql));
 ?>
-    <script type="text/javascript" src="loader.js"></script>
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Vendedor', 'Ventas al mes'],
-                <?php
-                    while($fila=$result->fetch_assoc()){
-                        echo"['".$fila["nombreprod"]."',".$fila["stock"]." ],";
-                    }
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+
+          
+          ['Año', 'Ventas'],
+          <?php
+                while($fila=$result->fetch_assoc()){
+                    echo"['".$fila["anio"]."',".$fila["ventas"]." ],";
+                }
                 //['Work',     11],
                 ?>
-            ]);
-            var options = {
-                title: 'Productos en almacen',
-                is3D: true,
-                //pieHole: 0.4, Grafica de dona
-            };
 
-            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-            //donutchart grafica de dona
-            chart.draw(data, options);
-        }
-        
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Ganacias de la compañia por año',
+            subtitle: 'Ventas: 2010-2018',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
     </script>
-    
-
-<body>
-<!--
-donutchart grafica de dona
--->
-<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
 
 
         
