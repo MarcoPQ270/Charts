@@ -9,7 +9,7 @@ echo "<table class ='highlight bordered'>
 foreach ($res as $tupla) {
     $idp = $tupla['idproducto'];
     $nompro = $tupla['nombreprod'];
-    $precio = $tupla['precio'];
+    $precio = $tupla['precioprod'];
     $stock = $tupla['stock'];
     $categoria=$tupla['nombrecategoria'];
     echo "<tr><td>$idp</td><td>$nompro</td><td>$precio</td><td>$stock</td><td>$categoria</td><td>

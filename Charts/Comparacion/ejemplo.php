@@ -15,15 +15,20 @@
 
     <div class="row">
         <div class="col s12 m8 offset-m2">
-            <div class="card">
+          
           
         
         </div>
                 
         <div class="row">
-<?php
+        <?php
 $conn=new mysqli("localhost","root","","graficos");
-$sql='SELECT nombreprod, b.cantidad from productos as a INNER JOIN detalle as b on a.idproducto=b.idproducto';
+$sql='SELECT A.nombreprod, A.precioprod, B.precio
+FROM productos A
+INNER JOIN detalle B ON
+(A.idproducto = B.idproducto)
+ORDER BY
+A.nombreprod';
 $result = $conn->query(($sql));
 ?>
 <html>
@@ -35,29 +40,31 @@ $result = $conn->query(($sql));
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Cantidad', 'Producto'],
+          ['Producto', 'Ganancias', 'perdidias'],
           <?php
                 while($fila=$result->fetch_assoc()){
-                    echo"['".$fila["nombreprod"]."',".$fila["cantidad"]." ],";
+                    echo"['".$fila["nombreprod"]."',".$fila["precio"].",".$fila["precioprod"]." ],";
                 }
                 //['Work',     11],
                 ?>
         ]);
+
         var options = {
-          title: 'Comparacion de productos mas vendidos',
-          hAxis: {title: 'Producto', minValue: 0, maxValue: 10},
-          vAxis: {title: 'Cantidad', minValue: 0, maxValue: 10},
-          legend: 'none'
+          title: 'Ganancias y perdidias por productos',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
         };
 
-        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
     </script>
   </head>
   <body>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  </body>
+</html>
+
   </body>
 </html>
 

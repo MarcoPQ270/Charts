@@ -15,7 +15,7 @@
 <body background="../img/a.jpg">
     <div class="row">
         <div class="col s12 m8 offset-m2">
-            <h3 align="center"><font color="#2196F3">Detalle compra</font></h3>
+            <h3 align="center"><font color="#2196F3">Comparacion de ganacias y perdidas de la empresa</font></h3>
             <div class="card">
             <div class="card-image">
         </div>
@@ -24,7 +24,7 @@
                         <div class="row">
                         <div class="input-field col s12">
                         <div class="card-image">
-                                    <img src="../../img/dinero.jpg" width="230" height="300">
+                                    <img src="../../img/cliente.jpg" width="230" height="300">
                            </div>
                             <div class="input-field col s9">
                             
@@ -45,7 +45,7 @@
         </div>
     </div>
     <!-------------------------------------------------------------------------------- Ventana Modal---------------------------------------------------------------------------->
-<div class="modal" id="Tabladetalle">
+<div class="modal" id="Tablacomparacion">
         <div class="modal-content">
             <h4 align="center">Consulta de detalles ventas</h4>
             <br>
@@ -65,15 +65,15 @@
     <script type="text/javascript" src="../../js/jquery.validate.min.js"></script>
     <script>
  //INICIALIZA LA VENTANA MODAL--------------------------------------------------------------------------------------------------------------------------------------------
-            $("#Tabladetalle").modal();
-            $("#tabla").load("Tabladetalle.php");
+            $("#Tablacomparacion").modal();
+            $("#tabla").load("Tablacomparacion.php");
             $("#btnConsultar").click(function(){
-                $("#tabla").load("Tabladetalle.php");
-                $("#Tabladetalle").modal('open');
+                $("#tabla").load("Tablacomparacion.php");
+                $("#Tablacomparacion").modal('open');
                 
             });
             $("#Cerrar").click(function(){
-                $("#Tabladetalle").modal('close');
+                $("#Tablacomparacion").modal('close');
                 
             });
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

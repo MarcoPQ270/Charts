@@ -52,7 +52,7 @@ function Ejecuta ($sentencia){
 //------------------------------------------------------------
 //nombreprod	precio	stock	idcategoria
 function cargaProd(){
-    $query = "SELECT A.idproducto, A.nombreprod,A.precio,A.stock, B.nombrecategoria FROM productos A
+    $query = "SELECT A.idproducto, A.nombreprod,A.precioprod,A.stock, B.nombrecategoria FROM productos A
     INNER JOIN categoria B ON
         (A.idcategoria = B.idcategoria)
     ORDER BY
@@ -76,4 +76,13 @@ ON
     ORDER BY
         iddetalle";
     return Consulta($query);
+}
+
+function cargacompracio(){
+$query="SELECT A.nombreprod, A.precioprod, B.precio
+FROM productos A
+INNER JOIN detalle B ON
+(A.idproducto = B.idproducto)
+ORDER BY
+A.nombreprod";
 }

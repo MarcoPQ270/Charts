@@ -41,14 +41,14 @@
                                 <div class="card">
                                     <div class="card-image">
                                     <img src="img/cliente.jpg" width="230" height="150">
-                                    <span class="card-title">Detalles ventas</span>
+                                    <span class="card-title">Ventas</span>
                                     </div>
                                     <div class="card-content">
                                     <p>I am a very simple card. I am good at containing small bits of information.
                                     I am convenient because I require little markup to use effectively.</p>
                                     </div>
                                     <div class="card-action">
-                                    <a href="Charts/Detalle/detallecomp.php">Graficar</a>
+                                    <a href="Charts/Detalle/detallecomp.php">Detalle de ventas</a>
                                     </div>
                                 </div>
                                 </div>
@@ -57,14 +57,14 @@
                                 <div class="card">
                                     <div class="card-image" >
                                     <img src="img/dinero.jpg" width="230" height="150">
-                                    <span class="card-title">Ganancias</span>
+                                    <span class="card-title">Comparacion</span>
                                     </div>
                                     <div class="card-content">
                                     <p>I am a very simple card. I am good at containing small bits of information.
                                     I am convenient because I require little markup to use effectively.</p>
                                     </div>
                                     <div class="card-action">
-                                    <a href="../graficos/ejemplo2.html">Graficar</a>
+                                    <a href="Charts/Comparacion/comparacion.php">Graficar</a>
                                     </div>
                                 </div>
                                 </div>
