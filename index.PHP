@@ -17,19 +17,18 @@
             <div class="card">
             <div class="card-image">
           <img src="img/d.jpg">
-        <span class="card-title">¿Que desea hacer?</span>
+        <span class="card-title">¿Que desea consultar?</span>
         </div>
                 
         <div class="row">
                                 <div class="col s6 m4">
                                 <div class="card">
                                     <div class="card-image">
-                                    <img src="img/ventas.png" width="230" height="150">
+                                    <img src="img/productos en stock.jpg" width="230" height="150">
                                     <span class="card-title">Productos en Stock</span>
                                     </div>
                                     <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
+                                    <p>Se muestran los productos en Stock de la empresa y se grafican los datos en base a los productos y la cantidad que hay de los mismos.</p>
                                     </div>
                                     <div class="card-action">
                                     <a href="Charts/Productos/productos.php">Productos</a>
@@ -40,12 +39,11 @@
                                 <div class="col s6 m4">
                                 <div class="card">
                                     <div class="card-image">
-                                    <img src="img/cliente.jpg" width="230" height="150">
+                                    <img src="img/ventas.jpg" width="230" height="150">
                                     <span class="card-title">Ventas</span>
                                     </div>
                                     <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
+                                    <p>Se muestra una grafica y una tabla sobre los productos mas vendidos en base a los detalles de ls ventas</p>
                                     </div>
                                     <div class="card-action">
                                     <a href="Charts/Detalle/detallecomp.php">Detalle de ventas</a>
@@ -56,12 +54,11 @@
                                 <div class="col s6 m4">
                                 <div class="card">
                                     <div class="card-image" >
-                                    <img src="img/dinero.jpg" width="230" height="150">
+                                    <img src="img/comparacion.png" width="230" height="150">
                                     <span class="card-title">Comparacion</span>
                                     </div>
                                     <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
+                                    <p>Se muestra una grafica y una tabla donde se comparan ganancias y las predidas dentro de la organizacion</p>
                                     </div>
                                     <div class="card-action">
                                     <a href="Charts/Comparacion/comparacion.php">Graficar</a>
@@ -71,12 +68,11 @@
                                 <div class="col s6 m4">
                                 <div class="card">
                                     <div class="card-image" >
-                                    <img src="img/dinero.jpg" width="230" height="150">
+                                    <img src="img/ganancias.jpg" width="230" height="150">
                                     <span class="card-title">Ganancias</span>
                                     </div>
                                     <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
+                                    <p>Se muestran las ganancias de la empresa  en una grafica de barras en base a los años que la empresa tiene trabajando</p>
                                     </div>
                                     <div class="card-action">
                                     <a href="Charts/VentasComp/ejemplo.php">Graficar</a>
