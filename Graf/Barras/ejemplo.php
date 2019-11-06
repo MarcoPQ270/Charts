@@ -1,3 +1,4 @@
+  
 <?php include_once('../../Fo/header.php'); ?>
 <head>
     <meta charset="UTF-8">
@@ -22,7 +23,6 @@
                 
         <div class="row">
         <?php
-
 $conn=new mysqli("localhost","root","","graficos");
 $año = $_POST['sel'];
 $sql="SELECT
@@ -49,11 +49,11 @@ $result = $conn->query(($sql));
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
-
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
+          
           ['Ganancia', 'Mes'],
           <?php
                 while($fila=$result->fetch_assoc()){
@@ -63,22 +63,18 @@ $result = $conn->query(($sql));
                 ?>
         ]);
         var options = {
-          title: 'Comparacion de productos mas vendidos en el año <?php echo $año ?>',
-          hAxis: {title: 'Mes', minValue: 0, maxValue: 12},
-          vAxis: {title: 'Ganancia', minValue: 0, maxValue: 12},
-          legend: 'none'
+          chart: {
+            title: 'Ganacias de la compañia del año <?php echo $año ?>',
+            subtitle: 'Ventas: <?php echo $año ?>',
+          }
         };
-
-        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-
-        chart.draw(data, options);
+        var chart = new google.charts.Bar(document.getElementById('columnchart'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
   </head>
   <body>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
-  </body>
-</html>
+    <div id="columnchart" style="width: 800px; height: 500px;"></div>
 
 
         
@@ -94,7 +90,6 @@ $result = $conn->query(($sql));
     <script type="text/javascript" src="../../js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
     <script type="text/javascript" src="../../js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="new.js"></script>   
     </section>
 
     <?php include('../../Fo/footer.php');?>

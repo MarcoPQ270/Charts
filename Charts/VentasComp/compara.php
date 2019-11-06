@@ -1,4 +1,5 @@
 <?php include_once('../../Fo/header.php'); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,32 +11,38 @@
     <link rel="icon" type="image/x-icon" href="../../fonts/favicon.ico" />
 
 </head>
-<body>
-<section>
 
+<body background="../img/a.jpg">
     <div class="row">
         <div class="col s12 m8 offset-m2">
-          
-        <form action="compara.php" name="frm1" id="frm1" method="post">
+            <h3 align="center"><font color="#2196F3">Ganancias</font></h3>
+            <div class="card">
+            <div class="card-image">
+        </div>
+                <div class="card-content">
+                    <form action="ejemplo.php" name="frm1" id="frm1" method="post">
                         <div class="row">
                         <div class="input-field col s12">
-                       
+                        <div class="card-image">
+                                    <img src="../../img/ventas.png" width="230" height="300">
+                           </div>
 
                            <div class="input-field col s3">
     <select id="sel" name="sel">
       <option value="" disabled selected>Selecciona el año</option>
       <option value="2010">2010</option>
-      <option value="2011">2011</option>
-      <option value="2012">2012</option>
+      <option value="2015">2015</option>
+      <option value="2016">2016</option>
+      <option value="2017">2017</option>
+      <option value="2018">2018</option>
     </select>
-    <label>Seleccion</label>
+    <label>Seleccion del año</label>
    
   </div>
   <?php
     if(isset($_POST['sel']))
     {
         $año=$_POST['sel'];
-        echo $año;
     }
     ?>  
                             <div class="input-field col s9">
@@ -49,65 +56,24 @@
                            
                         </div>
                     </form>
-        </div>
-                
-        <div class="row">
-        <?php
-$conn=new mysqli("localhost","root","","graficos");
-$sql='SELECT A.nombreprod, A.precioprod, B.precio
-FROM productos A
-INNER JOIN detalle B ON
-(A.idproducto = B.idproducto)
-ORDER BY
-A.nombreprod';
-$result = $conn->query(($sql));
-?>
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Producto', 'Ganancias', 'perdidias'],
-          <?php
-                while($fila=$result->fetch_assoc()){
-                    echo"['".$fila["nombreprod"]."',".$fila["precio"].",".$fila["precioprod"]." ],";
-                }
-                //['Work',     11],
-                ?>
-        ]);
-
-        var options = {
-          title: 'Ganancias y perdidias por productos',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-  <body>
-    <div id="chart_div" style="width: 100%; height: 500px;"></div>
-  </body>
-</html>
-
-  </body>
-</html>
-
-
-
-        
+                </div>
+                </div>
+            </div>
         </div>
     </div>
-    
-    
     <!-------------------------------------------------------------------------------- Ventana Modal---------------------------------------------------------------------------->
-
+<div class="modal" id="Tablaprod">
+        <div class="modal-content">
+            <h4 align="center">Consulta de Productos</h4>
+            <br>
+            <div class="row" id="tabla">
+               
+            </div>
+        </div>
+        <div class="modal-foter">
+            <a id="Cerrar" class="modal-action waves-effect waves-orange btn-flat">Cerrar</a>
+        </div>
+</div>
 <!--------------------------------------------------------------------------------- FIN VENTANA MODAL---------------------------------------------------------------------->
 
 
@@ -115,6 +81,22 @@ $result = $conn->query(($sql));
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
     <script type="text/javascript" src="../../js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="new.js"></script>   
-    </section>
+    <script>
+ //INICIALIZA LA VENTANA MODAL--------------------------------------------------------------------------------------------------------------------------------------------
+            $("#Tablaprod").modal();
+            $("#tabla").load("Tablaprod.php");
+            $("#btnConsultar").click(function(){
+                $("#tabla").load("Tablaprod.php");
+                $("#Tablaprod").modal('open');
+                
+            });
+            $("#Cerrar").click(function(){
+                $("#Tablaprod").modal('close');
+                
+            });
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    <?php include('../../Fo/footer.php');?>
+    </script>
+</body>
+
+<?php include('../../Fo/footer.php');?>

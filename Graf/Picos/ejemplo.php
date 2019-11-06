@@ -15,51 +15,33 @@
 
     <div class="row">
         <div class="col s12 m8 offset-m2">
+            <div class="card">
           
-        <form action="compara.php" name="frm1" id="frm1" method="post">
-                        <div class="row">
-                        <div class="input-field col s12">
-                       
-
-                           <div class="input-field col s3">
-    <select id="sel" name="sel">
-      <option value="" disabled selected>Selecciona el año</option>
-      <option value="2010">2010</option>
-      <option value="2011">2011</option>
-      <option value="2012">2012</option>
-    </select>
-    <label>Seleccion</label>
-   
-  </div>
-  <?php
-    if(isset($_POST['sel']))
-    {
-        $año=$_POST['sel'];
-        echo $año;
-    }
-    ?>  
-                            <div class="input-field col s9">
-                            
-                               <!-- <button id="btnGuardar" name="btnGuardar" type="button" class="btn waves-effect waves-light blue" >
-                                        <i class="material-icons right" >save</i>Graficar</button>-->
-
-                                        <input type="submit" name="btnAgregar" value="Enviar">
-                            </div>
-                           
-                           
-                        </div>
-                    </form>
+        
         </div>
                 
         <div class="row">
         <?php
+
 $conn=new mysqli("localhost","root","","graficos");
-$sql='SELECT A.nombreprod, A.precioprod, B.precio
-FROM productos A
+$año = $_POST['sel'];
+$sql="SELECT
+EXTRACT(MONTH
+FROM
+B.fechacompra) AS mes,
+SUM(B.precio) AS suma
+FROM
+productos A
 INNER JOIN detalle B ON
 (A.idproducto = B.idproducto)
-ORDER BY
-A.nombreprod';
+WHERE
+EXTRACT(YEAR
+FROM
+b.fechacompra) = $año
+GROUP BY
+EXTRACT(MONTH
+FROM
+B.fechacompra)";
 $result = $conn->query(($sql));
 ?>
 <html>
@@ -71,18 +53,19 @@ $result = $conn->query(($sql));
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Producto', 'Ganancias', 'perdidias'],
+          ['Ganancia', 'Mes'],
           <?php
                 while($fila=$result->fetch_assoc()){
-                    echo"['".$fila["nombreprod"]."',".$fila["precio"].",".$fila["precioprod"]." ],";
+                    echo"[".$fila["mes"].",".$fila["suma"]." ],";
                 }
-                //['Work',     11],
+               
                 ?>
+          
         ]);
 
         var options = {
-          title: 'Ganancias y perdidias por productos',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          title: 'Ganancias del año <?php echo $año?>',
+          hAxis: {title: 'Meses',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0}
         };
 
@@ -95,11 +78,6 @@ $result = $conn->query(($sql));
     <div id="chart_div" style="width: 100%; height: 500px;"></div>
   </body>
 </html>
-
-  </body>
-</html>
-
-
 
         
         </div>

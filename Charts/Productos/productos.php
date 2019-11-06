@@ -26,6 +26,16 @@
                         <div class="card-image">
                                     <img src="../../img/ventas.png" width="230" height="300">
                            </div>
+
+                           <div class="input-field col s3">
+    <select>
+      <option value="" disabled selected>Selecciona el año</option>
+      <option value="1">2010</option>
+      <option value="2">2011</option>
+      <option value="3">2012</option>
+    </select>
+    <label>Seleccion</label>
+  </div>
                             <div class="input-field col s9">
                             
                                 <button id="btnGuardar" name="btnGuardar" type="button" class="btn waves-effect waves-light blue" >
@@ -63,6 +73,7 @@
     <script type="text/javascript" src="../../js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
     <script type="text/javascript" src="../../js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="new.js"></script>   
     <script>
  //INICIALIZA LA VENTANA MODAL--------------------------------------------------------------------------------------------------------------------------------------------
             $("#Tablaprod").modal();

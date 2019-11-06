@@ -75,7 +75,7 @@
                                     <p>Se muestran las ganancias de la empresa  en una grafica de barras en base a los años que la empresa tiene trabajando</p>
                                     </div>
                                     <div class="card-action">
-                                    <a href="Charts/VentasComp/ejemplo.php">Graficar</a>
+                                    <a href="Charts/VentasComp/compara.php">Graficar</a>
                                     </div>
                                 </div>
                                 </div>
